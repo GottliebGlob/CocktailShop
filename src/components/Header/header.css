@@ -1,0 +1,58 @@
+
+.App-header {
+    background-color: #282c34;
+    max-height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 1vmin);
+    color: white;
+}
+
+
+.main-nav__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0 10px;
+}
+
+.nav__element {
+    padding: 3px 10px;
+    box-sizing: border-box;
+    border: 1px solid #282c34;
+}
+
+.nav__element > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav__element > a:active, .nav__element > a:hover  {
+    color: darkgray;
+    border-bottom: 2px solid darkgray;
+}
+
+.nav__element--danger {
+    color: coral;
+}
+
+.nav__element--danger:hover > a {
+    color: chocolate;
+    border: none;
+}
+
+.nav__element--danger:hover {
+    box-sizing: border-box;
+    border: 1px solid chocolate;
+    border-radius: 5px;
+}
+
+
+.logo {
+    height: calc(50px + 1vmin);
+    width: calc(50px + 1vmin);
+    padding: 0 10px;
+}
