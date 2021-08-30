@@ -10,7 +10,13 @@ const init = {
 const fetcher = (url) => {
    return fetch(`https://the-cocktail-db.p.rapidapi.com/${url}`, init)
         .then(response => {
-            return response.json();
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                return "Something went wrong!"
+            }
+
         }).then((myJson) => {
         const { drinks } = myJson
            const result = []

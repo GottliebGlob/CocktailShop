@@ -1,14 +1,15 @@
 import React from "react";
 import './card-list-item.css'
+import PropTypes from "prop-types";
 
 export const CardListItem = (props) => {
 
-    const {name, category, instruction, image} = props.data
+    const {name, category, instruction, image, id} = props.data
 
     return (
         <div className="card-list-item">
             <div className="card-list-item__top">
-                <button onClick={() => {props.onAdd(props.id)}} className="delete">
+                <button onClick={() => {props.onAdd(props.data)}} className="delete">
                     Add
                 </button>
                 <img src={image} className="item-logo" alt="A cocktail should be there..."/>
@@ -24,3 +25,14 @@ export const CardListItem = (props) => {
         </div>
     )
 }
+
+CardListItem.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        category: PropTypes.string,
+        instruction: PropTypes.string,
+        image: PropTypes.string
+    }).isRequired
+}
+

@@ -1,15 +1,14 @@
 import React from "react";
 import CardListItem from "../CardListItem";
 import "./card-list.css"
+import PropTypes from 'prop-types';
 
 export const CardList = (props) => {
 
     const items = props.data.map((item) => {
-        const { id, ...rest} = item
-
         return (
-            <li key={id}>
-             <CardListItem data={rest} id={id} onAdd={props.onAdd}/>
+            <li key={item.id}>
+             <CardListItem data={item} onAdd={props.onAdd}/>
             </li>
         )
     })
@@ -21,4 +20,8 @@ export const CardList = (props) => {
         </ul>
         </div>
     )
+}
+
+CardList.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object)
 }

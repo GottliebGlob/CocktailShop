@@ -6,13 +6,13 @@
     padding: 15px;
     box-sizing: border-box;
     border-radius: 10px;
-
 }
 
 .card-list-item__top {
     display: inline-block;
     width: 100%;
     float: left;
+    padding-bottom: 5px;
 }
 
 .card-list-item__top p {
@@ -25,7 +25,7 @@
 
 .card-list-item__top--text {
     display: inline-block;
-    width: calc(100% - 200px);
+    width: calc(100% - 160px);
 }
 
 .card-list-item--name {
@@ -41,7 +41,10 @@
 .card-list-item--instruction {
     color: darkgray;
     text-indent: 1em;
-    display: block;
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin: 0 5px 0 5px;
 }
 
 .item-logo {
@@ -58,10 +61,12 @@
     padding: 0;
     color: coral;
     position: relative;
-    width: 50px;
+    width: 40px;
     height: 15px;
     display: inline-block;
     float: right;
+    text-align: right;
+    margin-top: -5px;
 }
 
 .delete:hover, .delete:active {

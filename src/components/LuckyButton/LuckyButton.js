@@ -1,5 +1,6 @@
 import React from "react";
 import "./LuckyButton.css"
+import PropTypes from "prop-types";
 
 export const LuckyButton = (props) => {
 
@@ -10,4 +11,8 @@ export const LuckyButton = (props) => {
             </button>
         </div>
     )
+}
+
+LuckyButton.propTypes = {
+    onLuckyButtonClick: PropTypes.func
 }

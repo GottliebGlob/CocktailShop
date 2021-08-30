@@ -1,5 +1,6 @@
 import React from "react";
 import "./SearchBar.css"
+import PropTypes from 'prop-types';
 
 
 export const SearchBar = (props) => {
@@ -16,4 +17,12 @@ export const SearchBar = (props) => {
             />
         </div>
     )
+}
+
+SearchBar.propTypes = {
+    data: PropTypes.shape({
+        searchResult: PropTypes.string,
+        setSearchResult: PropTypes.func,
+
+    })
 }

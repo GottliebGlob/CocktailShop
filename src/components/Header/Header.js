@@ -1,6 +1,7 @@
 import './header.css';
 import logo from './logo.svg';
 import SearchBar from "../SearchBar";
+import PropTypes from "prop-types";
 
 export const Header = (props) => {
     return (
@@ -15,11 +16,19 @@ export const Header = (props) => {
                         </li>
 
                         <li className="nav__element nav__element--danger">
-                            <a href="/#">Order now</a>
+                            <a href="/#" onClick={() => props.onOrderClick()}>Order now</a>
                         </li>
                     </ul>
 
                 </nav>
             </header>
     );
+}
+
+Header.propTypes = {
+    data: PropTypes.shape({
+        searchResult: PropTypes.string,
+        setSearchResult: PropTypes.func,
+
+    })
 }

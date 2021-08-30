@@ -1,11 +1,12 @@
 
 .card-list > li {
     list-style: none;
-    flex: 0 0 30%;
+    flex: 0 0 30vmax;
+    min-width: 300px;
     display: flex;
     padding: 1%;
-
 }
+
 
 .card-list {
     display: flex;
@@ -15,6 +16,15 @@
     margin: 0;
 }
 
-.container {
-    height: 100%;
+@media (max-width: 1000px) {
+    .card-list > li {
+        flex: 0 0 40vw;
+    }
 }
+
+@media (max-width: 800px) {
+    .card-list > li {
+        flex: 0 0 90vw;
+    }
+}
+

@@ -2,8 +2,10 @@ import './App.css';
 import Header from "./components/Header";
 import CardList from "./components/CardList";
 import LuckyButton from "./components/LuckyButton";
+import Error from "./components/Error";
 import {useState, useEffect} from "react";
 import {getRandomCocktails, searchCocktails} from "./components/fetcher/fetcher";
+import CartModal from "./components/CartModal";
 
 
 function App() {
@@ -11,17 +13,13 @@ function App() {
 
     const [luckyState, setLuckyState] = useState([])
     const [searchState, setSearchState] = useState([])
+    const [cartState, setCartState] = useState([])
 
     const [searchMode, setSearchMode] = useState(false)
     const [searchResult, setSearchResult] = useState("")
+    const [error, setError] = useState(false)
+    const [cartVisible, setCartVisible] = useState(false)
 
-    const searchHandler = (searchFor) => {
-        setSearchResult(searchFor)
-        console.log(searchFor)
-            searchCocktails(searchFor).then(data =>
-                setSearchState(data.splice(0, 9))
-            )
-    }
 
     useEffect(() => {
         if (searchResult.length === 0) {
@@ -33,23 +31,50 @@ function App() {
         }
     }, [searchResult])
 
+    const searchHandler = (searchFor) => {
+        setError(false)
+        setSearchResult(searchFor)
+            searchCocktails(searchFor).then(data =>
+                setSearchState(data.splice(0, 9))
+            )
+    }
 
-    const addHandler = (id) => {
-        setLuckyState(mainState => mainState.filter((e) => e.id !== id))
+    const addHandler = (item) => {
+        setCartState(state => [...state, item])
+        setLuckyState(mainState => mainState.filter((e) => e.id !== item.id))
     }
 
     const luckyButtonHandler = () => {
         getRandomCocktails().then(data => {
-            setLuckyState(data.splice(1))
+
+            if (Array.isArray(data)) {
+                setError(false)
+                setLuckyState(data.sort((a, b) => {return a.instruction.length - b.instruction.length}).splice(1))
+            }
+            else {
+                setError(true)
+                setLuckyState([])
+                setSearchState([])
+            }
+
         })
 
     }
 
+    const cartGoBackHandler = () => {
+        setCartVisible(false)
+    }
+
+    const cartSubmitHandler = () => {
+        setCartVisible(false)
+        setCartState([])
+    }
+
     return (
         <div className="App">
-        <Header searchResult={searchResult} setSearchResult={searchHandler}/>
+        <Header searchResult={searchResult} setSearchResult={searchHandler} onOrderClick={() => setCartVisible(true)}/>
             <div className="title-wrapper">
-
+            <CartModal data={cartState} show={cartVisible} onGoBack={cartGoBackHandler} onSubmit={cartSubmitHandler}/>
                 { searchMode ? <>
                         <h2 className="main-title">
                             Here is what we have found...
@@ -64,6 +89,10 @@ function App() {
                 }
             </div>
 
+            {
+                error ? <Error err={error}/> : null
+
+            }
             { searchMode ?
                         <CardList data={searchState} onAdd={addHandler}/> :
                     <CardList data={luckyState} onAdd={addHandler}/>
