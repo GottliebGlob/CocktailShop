@@ -1,18 +1,26 @@
 
+
+
 .card-list > li {
     list-style: none;
     min-width: 300px;
     display: flex;
+    transition: transform .5s ease-in-out;
 }
 
+.card-list > li:hover {
+    transform: scale(1.08); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
 
 .card-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 1rem;
+    padding: 2rem;
     margin: 0;
-    grid-gap: 1rem;
+    grid-gap: 2rem;
 }
+
+
 
 @media (max-width: 1000px) {
     .card-list {

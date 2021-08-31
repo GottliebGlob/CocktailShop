@@ -18,7 +18,7 @@ function App() {
     const [searchMode, setSearchMode] = useState(false)
     const [searchResult, setSearchResult] = useState("")
     const [error, setError] = useState(false)
-    const [cartVisible, setCartVisible] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
 
     useEffect(() => {
@@ -61,20 +61,20 @@ function App() {
 
     }
 
-    const cartGoBackHandler = () => {
-        setCartVisible(false)
+    const cartSubmitHandler = () => {
+        setCartState([])
+        setShowModal(false)
     }
 
-    const cartSubmitHandler = () => {
-        setCartVisible(false)
-        setCartState([])
+    const cartBoBackHandler = () => {
+        setShowModal(false)
     }
 
     return (
         <div className="App">
-        <Header searchResult={searchResult} setSearchResult={searchHandler} onOrderClick={() => setCartVisible(true)}/>
+        <Header searchResult={searchResult} setSearchResult={searchHandler} onOrderClick={() => setShowModal(true)}/>
             <div className="title-wrapper">
-            <CartModal data={cartState} show={cartVisible} onGoBack={cartGoBackHandler} onSubmit={cartSubmitHandler}/>
+            <CartModal data={cartState} show={showModal} onGoBack={cartBoBackHandler} onSubmit={cartSubmitHandler}/>
                 { searchMode ? <>
                         <h2 className="main-title">
                             Here is what we have found...

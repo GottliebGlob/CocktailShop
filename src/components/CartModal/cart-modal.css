@@ -1,4 +1,14 @@
 .cart-modal {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-in-out;
+}
+
+.cart-modal--show {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
     position: fixed;
     left: 0;
     right: 0;

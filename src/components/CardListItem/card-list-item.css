@@ -5,7 +5,10 @@
     padding: 15px;
     box-sizing: border-box;
     border-radius: 10px;
+    transition: transform .2s;
 }
+
+
 
 .card-list-item__top {
     display: inline-block;
