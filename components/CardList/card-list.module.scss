@@ -1,0 +1,30 @@
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+  margin: 0;
+  grid-gap: 2rem;
+
+  li {
+    list-style: none;
+    min-width: 300px;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .cardList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .cardList {
+    grid-template-columns: 1fr;
+  }
+}

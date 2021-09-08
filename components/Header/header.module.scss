@@ -1,0 +1,56 @@
+.appHeader {
+  background-color: #282c34;
+  max-height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 1vmin);
+  color: white;
+}
+
+.mainNav__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  list-style: none;
+  padding: 0 10px;
+}
+
+.nav__element {
+  padding: 3px 10px;
+  box-sizing: border-box;
+  border: 1px solid #282c34;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:active,
+    &:hover {
+      color: darkgray;
+      border-bottom: 2px solid darkgray;
+    }
+  }
+}
+
+.nav__elementDanger {
+  color: coral;
+
+  &:hover {
+    box-sizing: border-box;
+    border: 1px solid chocolate;
+    border-radius: 5px;
+
+    a {
+      color: chocolate;
+      border: none;
+    }
+  }
+}
+
+.logo {
+  height: calc(50px + 1vmin);
+  width: calc(50px + 1vmin);
+  padding: 10px 10px;
+}
