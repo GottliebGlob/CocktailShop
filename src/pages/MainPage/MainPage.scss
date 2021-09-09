@@ -1,0 +1,47 @@
+.main-title {
+  color: white;
+  text-align: center;
+  margin: 20px 0 0 0;
+  display: inline;
+  padding-right: 1vh;
+  vertical-align: bottom;
+  font: {
+    weight: bold;
+    size: 5vh;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.title-wrapper {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+@media (max-width: 900px) {
+  .main-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-title {
+    font-size: 2rem;
+  }
+}

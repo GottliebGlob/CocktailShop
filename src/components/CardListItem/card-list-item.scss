@@ -1,0 +1,76 @@
+.card-list-item {
+  flex: 0 0 100%;
+  background-color: #282c34;
+  padding: 15px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.card-list-item__top {
+  display: inline-block;
+  width: 100%;
+  float: left;
+  padding-bottom: 5px;
+
+  p {
+    width: 100%;
+    vertical-align: top;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.card-list-item__top--text {
+  display: inline-block;
+  width: calc(100% - 160px);
+}
+
+.card-list-item--name {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.card-list-item--cat {
+  color: darkgray;
+}
+
+.card-list-item--instruction {
+  color: darkgray;
+  text-indent: 1em;
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  margin: 0 5px 0 5px;
+}
+
+.item-logo {
+  height: 100px;
+  width: 100px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 50px;
+}
+
+.delete {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: coral;
+  position: relative;
+  width: 40px;
+  height: 15px;
+  display: inline-block;
+  float: right;
+  text-align: right;
+  margin-top: -5px;
+}
+
+.delete {
+  &:hover,
+  &:active {
+    color: chocolate;
+    text-decoration: underline;
+  }
+}
