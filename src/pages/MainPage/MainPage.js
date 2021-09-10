@@ -33,6 +33,10 @@ export const MainPage = () => {
     }
   }, [searchResult]);
 
+  useEffect(() => {
+    luckyButtonHandler();
+  }, []);
+
   const searchHandler = (searchFor) => {
     setError(false);
     setSearchResult(searchFor);
@@ -69,7 +73,6 @@ export const MainPage = () => {
     setCartState([]);
     setShowModal(false);
     history.push("/order");
-    console.log("123");
   };
 
   const cartBoBackHandler = () => {

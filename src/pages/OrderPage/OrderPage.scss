@@ -72,3 +72,35 @@
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.2);
   }
 }
+
+@media (max-width: 1000px) {
+  .order-form {
+    width: 60vw;
+  }
+
+  .order-input-container {
+    label {
+      font-size: 1.3rem;
+    }
+  }
+
+  .order-submit {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .order-form {
+    width: 80vw;
+  }
+
+  .order-input-container {
+    label {
+      font-size: 1.2rem;
+    }
+  }
+
+  .order-submit {
+    font-size: 1.3rem;
+  }
+}

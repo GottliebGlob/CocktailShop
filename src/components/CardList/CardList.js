@@ -7,7 +7,7 @@ export const CardList = (props) => {
   const items = props.data.map((item) => {
     return (
       <li key={item.id}>
-        <CardListItem data={item} onAdd={props.onAdd} />
+        <CardListItem data={item} onAdd={props.onAdd} shouldAdd={true} />
       </li>
     );
   });

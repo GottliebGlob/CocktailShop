@@ -1,22 +1,30 @@
 import React from "react";
 import "./card-list-item.scss";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 export const CardListItem = (props) => {
-  // eslint-disable-next-line
+  const history = useHistory();
   const { name, category, instruction, image, id } = props.data;
 
+  const onItemClick = (id) => {
+    history.push(`/${id}`);
+  };
+
   return (
-    <div className="card-list-item">
+    <div className="card-list-item" onClick={() => onItemClick(id)}>
       <div className="card-list-item__top">
-        <button
-          onClick={() => {
-            props.onAdd(props.data);
-          }}
-          className="delete"
-        >
-          Add
-        </button>
+        {props.shouldAdd ? (
+          <button
+            onClick={() => {
+              props.onAdd(props.data);
+            }}
+            className="delete"
+          >
+            Add
+          </button>
+        ) : null}
+
         <img
           src={image}
           className="item-logo"

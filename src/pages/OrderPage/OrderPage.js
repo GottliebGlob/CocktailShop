@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./OrderPage.scss";
 import HeaderLayout from "../../components/HeaderLayout";
 import { Link } from "react-router-dom";
+import AsideHeader from "../../components/AsideHeader";
 
 const useFormField = (initialValue = "") => {
   const [value, setValue] = useState(initialValue);
@@ -22,17 +23,7 @@ export const OrderPage = (props) => {
   return (
     <div>
       <HeaderLayout>
-        <Link
-          to="/"
-          style={{
-            color: "coral",
-            fontWeight: "bold",
-            paddingRight: "15px",
-            textDecoration: "none",
-          }}
-        >
-          GO BACK
-        </Link>
+        <AsideHeader />
       </HeaderLayout>
       <div className="order-container">
         <form onSubmit={handleSubmit} className="order-form">
