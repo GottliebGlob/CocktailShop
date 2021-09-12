@@ -1,4 +1,4 @@
-.appHeader {
+.AppHeader {
   background-color: #282c34;
   max-height: 50px;
   display: flex;
@@ -9,7 +9,7 @@
   color: white;
 }
 
-.mainNav__items {
+.mainNavItems {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,7 +17,7 @@
   padding: 0 10px;
 }
 
-.nav__element {
+.navElement {
   padding: 3px 10px;
   box-sizing: border-box;
   border: 1px solid #282c34;
@@ -34,7 +34,7 @@
   }
 }
 
-.nav__elementDanger {
+.navElement_danger {
   color: coral;
 
   &:hover {
@@ -47,10 +47,4 @@
       border: none;
     }
   }
-}
-
-.logo {
-  height: calc(50px + 1vmin);
-  width: calc(50px + 1vmin);
-  padding: 10px 10px;
 }

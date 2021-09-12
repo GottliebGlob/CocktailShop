@@ -45,3 +45,7 @@ export const getRandomCocktails = () => {
 export const searchCocktails = (searchFor) => {
     return fetcher(`search.php?s=${searchFor}`)
 }
+
+export const getFullInfo = (id) => {
+    return fetcher(`lookup.php?i=${id}`);
+};

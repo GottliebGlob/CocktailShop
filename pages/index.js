@@ -1,6 +1,6 @@
 
 import styles from './Home.module.scss'
-import Header from "../components/Header";
+import Header from "../components/MainHeader";
 import CardList from "../components/CardList";
 import LuckyButton from "../components/LuckyButton";
 import Error from "../components/Error";
@@ -10,10 +10,12 @@ import {
   searchCocktails,
 } from "../components/fetcher/fetcher";
 import CartModal from "../components/CartModal";
+import HeaderLayout from "../components/HeaderLayout";
+import Router from "next/router";
 
-export default function Home() {
+function Home() {
 
-  const [luckyState, setLuckyState] = useState([]);
+  const [luckyState, setLuckyState] = useState();
   const [searchState, setSearchState] = useState([]);
   const [cartState, setCartState] = useState([]);
 
@@ -66,6 +68,7 @@ export default function Home() {
   const cartSubmitHandler = () => {
     setCartState([]);
     setShowModal(false);
+    Router.push('/order')
   };
 
   const cartBoBackHandler = () => {
@@ -74,11 +77,13 @@ export default function Home() {
 
   return (
       <div className={styles.App}>
+        <HeaderLayout>
         <Header
             searchResult={searchResult}
             setSearchResult={searchHandler}
             onOrderClick={() => setShowModal(true)}
         />
+        </HeaderLayout>
         <div className={styles.titleWrapper}>
           <CartModal
               data={cartState}
@@ -107,3 +112,7 @@ export default function Home() {
       </div>
   )
 }
+
+
+
+export default Home

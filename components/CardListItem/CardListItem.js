@@ -1,21 +1,30 @@
 import React from "react";
 import styles from "./card-list-item.module.scss";
 import PropTypes from "prop-types";
+import Router from "next/router";
 
 export const CardListItem = (props) => {
   const { name, category, instruction, image, id } = props.data;
 
+  const onItemClick = (id) => {
+    Router.push(`details/${id}`);
+  };
+
   return (
-    <div className={styles.cardListItem}>
+    <div className={styles.cardListItem} onClick={() => onItemClick(id)}>
       <div className={styles.cardListItem__top}>
-        <button
-          onClick={() => {
-            props.onAdd(props.data);
-          }}
-          className={styles.delete}
-        >
-          Add
-        </button>
+        {props.shouldAdd ? (
+            <button
+                onMouseDown={e => e.stopPropagation()}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  props.onAdd(props.data);
+                }}
+                className={styles.delete}
+            >
+              Add
+            </button>
+        ) : null}
         <img
           src={image}
           className={styles.itemLogo}
