@@ -13,9 +13,8 @@ import CartModal from "../components/CartModal";
 import HeaderLayout from "../components/HeaderLayout";
 import Router from "next/router";
 
-function Home() {
-
-  const [luckyState, setLuckyState] = useState();
+function Home(props) {
+  const [luckyState, setLuckyState] = useState(props.data);
   const [searchState, setSearchState] = useState([]);
   const [cartState, setCartState] = useState([]);
 
@@ -113,6 +112,17 @@ function Home() {
   )
 }
 
-
+export async function getStaticProps(context) {
+  const data = await getRandomCocktails()
+  data.splice(9, 10)
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
 
 export default Home
